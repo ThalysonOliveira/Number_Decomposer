@@ -17,6 +17,13 @@ class NumberDecomposeController implements Controller {
             };
         }
 
+        if (httpRequest.body.number < 1) {
+            return {
+                statusCode: 400,
+                body: new Error('O número fornecido não pode ser menor que um!'),
+            };
+        }
+
         return {
             statusCode: 200,
         };
