@@ -1,3 +1,4 @@
+import { badRequest } from '../helpers/http-helpers';
 import { NumberDecomposeController } from './number-decompose-controller';
 
 describe('Number Decompose Controller', () => {
@@ -10,8 +11,7 @@ describe('Number Decompose Controller', () => {
 
         const httpResponse = sut.handle(httpRequest);
 
-        expect(httpResponse.statusCode).toBe(400);
-        expect(httpResponse.body).toEqual(new Error('O número obrigatório!'));
+        expect(httpResponse).toEqual(badRequest('O número obrigatório!'));
     });
 
     test('Should return 400 if number is no a numeric type', () => {
@@ -25,8 +25,7 @@ describe('Number Decompose Controller', () => {
 
         const httpResponse = sut.handle(httpRequest);
 
-        expect(httpResponse.statusCode).toBe(400);
-        expect(httpResponse.body).toEqual(new Error('Formato do número inválido!'));
+        expect(httpResponse).toEqual(badRequest('Formato do número inválido!'));
     });
 
     test('Should return 400 if number provided is less to be one', () => {
@@ -40,7 +39,6 @@ describe('Number Decompose Controller', () => {
 
         const httpResponse = sut.handle(httpRequest);
 
-        expect(httpResponse.statusCode).toBe(400);
-        expect(httpResponse.body).toEqual(new Error('O número fornecido não pode ser menor que um!'));
+        expect(httpResponse).toEqual(badRequest('O número fornecido não pode ser menor que um!'));
     });
 });

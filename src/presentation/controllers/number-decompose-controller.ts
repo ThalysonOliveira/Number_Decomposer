@@ -1,28 +1,16 @@
+import { badRequest } from '../helpers/http-helpers';
 import { Controller } from '../protocols/controller';
 import { HttpRequest, HttpResponse } from '../protocols/http';
 
 class NumberDecomposeController implements Controller {
     handle(httpRequest: HttpRequest): HttpResponse {
-        if (!httpRequest.body.number) {
-            return {
-                statusCode: 400,
-                body: new Error('O número obrigatório!'),
-            };
-        }
+        const { number } = httpRequest.body;
 
-        if (typeof httpRequest.body.number !== 'number') {
-            return {
-                statusCode: 400,
-                body: new Error('Formato do número inválido!'),
-            };
-        }
+        if (!number) { return badRequest('O número obrigatório!'); }
 
-        if (httpRequest.body.number < 1) {
-            return {
-                statusCode: 400,
-                body: new Error('O número fornecido não pode ser menor que um!'),
-            };
-        }
+        if (typeof number !== 'number') return badRequest('Formato do número inválido!');
+
+        if (number < 1) return badRequest('O número fornecido não pode ser menor que um!');
 
         return {
             statusCode: 200,
