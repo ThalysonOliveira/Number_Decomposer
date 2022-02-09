@@ -5,8 +5,20 @@ describe('Number Decompose Controller', () => {
         const sut = new NumberDecomposeController();
 
         const httpRequest = {
+            body: {},
+        };
+
+        const httpResponse = sut.handle(httpRequest);
+
+        expect(httpResponse.statusCode).toBe(400);
+    });
+
+    test('Should return 400 if number is no a numeric type', () => {
+        const sut = new NumberDecomposeController();
+
+        const httpRequest = {
             body: {
-                number: 1,
+                number: '1',
             },
         };
 
