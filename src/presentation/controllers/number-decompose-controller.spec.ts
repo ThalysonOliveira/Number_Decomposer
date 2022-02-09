@@ -1,9 +1,15 @@
 import { badRequest } from '../helpers/http-helpers';
 import { NumberDecomposeController } from './number-decompose-controller';
 
+const makeSut = (): NumberDecomposeController => {
+    const sut = new NumberDecomposeController();
+
+    return sut;
+};
+
 describe('Number Decompose Controller', () => {
     test('Should return 400 if no number is provided', () => {
-        const sut = new NumberDecomposeController();
+        const sut = makeSut();
 
         const httpRequest = {
             body: {},
@@ -15,7 +21,7 @@ describe('Number Decompose Controller', () => {
     });
 
     test('Should return 400 if number is no a numeric type', () => {
-        const sut = new NumberDecomposeController();
+        const sut = makeSut();
 
         const httpRequest = {
             body: {
@@ -29,7 +35,7 @@ describe('Number Decompose Controller', () => {
     });
 
     test('Should return 400 if number provided is less to be one', () => {
-        const sut = new NumberDecomposeController();
+        const sut = makeSut();
 
         const httpRequest = {
             body: {
