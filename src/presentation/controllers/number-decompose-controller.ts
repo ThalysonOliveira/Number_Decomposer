@@ -1,6 +1,7 @@
+import { Controller } from '../protocols/controller';
 import { HttpRequest, HttpResponse } from '../protocols/http';
 
-class NumberDecomposeController {
+class NumberDecomposeController implements Controller {
     handle(httpRequest: HttpRequest): HttpResponse {
         if (!httpRequest.body.number) {
             return {
