@@ -2,11 +2,11 @@ import { badRequest } from '../helpers/http-helpers';
 import { Controller } from '../protocols/controller';
 import { HttpRequest, HttpResponse } from '../protocols/http';
 
-class NumberDecomposeController implements Controller {
+class NumberDecomposerController implements Controller {
     handle(httpRequest: HttpRequest): HttpResponse {
         const { number } = httpRequest.body;
 
-        if (!number) { return badRequest('O número obrigatório!'); }
+        if (!number) { return badRequest('O número é obrigatório!'); }
 
         if (typeof number !== 'number') return badRequest('Formato do número inválido!');
 
@@ -18,4 +18,4 @@ class NumberDecomposeController implements Controller {
     }
 }
 
-export { NumberDecomposeController };
+export { NumberDecomposerController };

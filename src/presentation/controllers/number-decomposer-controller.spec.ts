@@ -1,13 +1,13 @@
 import { badRequest } from '../helpers/http-helpers';
-import { NumberDecomposeController } from './number-decompose-controller';
+import { NumberDecomposerController } from './number-decomposer-controller';
 
-const makeSut = (): NumberDecomposeController => {
-    const sut = new NumberDecomposeController();
+const makeSut = (): NumberDecomposerController => {
+    const sut = new NumberDecomposerController();
 
     return sut;
 };
 
-describe('Number Decompose Controller', () => {
+describe('Number Decomposer Controller', () => {
     test('Should return 400 if no number is provided', () => {
         const sut = makeSut();
 
