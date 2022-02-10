@@ -24,4 +24,14 @@ describe('Number Decomposer Service', () => {
         expect(decomposed).toHaveProperty('dividingNumbers');
         expect(decomposed).toHaveProperty('primeNumbers');
     });
+
+    test('Should return the number decomposed on success', async () => {
+        const sut = new NumberDecomposerService();
+
+        const number = 1;
+
+        const decomposed = sut.decomposer(number);
+
+        expect(decomposed).toEqual(decomposed);
+    });
 });
