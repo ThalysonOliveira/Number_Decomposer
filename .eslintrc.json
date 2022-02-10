@@ -24,6 +24,9 @@
         "no-useless-constructor": "off",
         "no-empty-function": "off",
         "no-plusplus": "off",
-        "no-restricted-syntax": "off"
+        "no-restricted-syntax": "off",
+        "import/no-dynamic-require": "off",
+        "global-require": "off",
+        "consistent-return": "off"
     }
 }
