@@ -1,5 +1,5 @@
 import { NumberDecomposer } from '../../domain/userCases/number-decomposer';
-import { badRequest } from '../helpers/http-helpers';
+import { badRequest, serverError } from '../helpers/http-helpers';
 import { Controller } from '../protocols/controller';
 import { HttpRequest, HttpResponse } from '../protocols/http';
 
@@ -23,10 +23,7 @@ class NumberDecomposerController implements Controller {
                 statusCode: 200,
             };
         } catch (error) {
-            return {
-                statusCode: 500,
-                body: new Error(),
-            };
+            return serverError();
         }
     }
 }

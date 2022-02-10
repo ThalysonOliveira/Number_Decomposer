@@ -9,4 +9,11 @@ const badRequest = (message: string, data?: unknown): HttpResponse => ({
     },
 });
 
-export { badRequest };
+const serverError = (): HttpResponse => ({
+    statusCode: 500,
+    body: {
+        message: 'Error interno no servidor!',
+    },
+});
+
+export { badRequest, serverError };
