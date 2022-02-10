@@ -1,8 +1,14 @@
 import { NumberDecomposerService } from './number-decomposer-service';
 
+const makeSut = (): NumberDecomposerService => {
+    const sut = new NumberDecomposerService();
+
+    return sut;
+};
+
 describe('Number Decomposer Service', () => {
     test('Should call NumberDecomposerService.decompose with correct values', () => {
-        const sut = new NumberDecomposerService();
+        const sut = makeSut();
 
         const number = 1;
 
@@ -14,7 +20,7 @@ describe('Number Decomposer Service', () => {
     });
 
     test('Should return the number decomposed with its properties', async () => {
-        const sut = new NumberDecomposerService();
+        const sut = makeSut();
 
         const number = 1;
 
@@ -26,7 +32,7 @@ describe('Number Decomposer Service', () => {
     });
 
     test('Should return the number decomposed on success', async () => {
-        const sut = new NumberDecomposerService();
+        const sut = makeSut();
 
         const number = 1;
 
