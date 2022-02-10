@@ -103,4 +103,21 @@ describe('Number Decomposer Controller', () => {
 
         expect(httpResponse).toEqual(serverError());
     });
+
+    test('Should return 200 if a number has been decomposed', () => {
+        const { sut, numberDecomposerStub } = makeSut();
+
+        const httpRequest = {
+            body: {
+                number: 1,
+            },
+        };
+
+        const decomposedNumbers = numberDecomposerStub.decomposer(httpRequest.body.number);
+
+        const httpResponse = sut.handle(httpRequest);
+
+        expect(httpResponse.statusCode).toBe(200);
+        expect(httpResponse.body).toEqual({ message: 'Números decompostos com sucesso!', data: decomposedNumbers });
+    });
 });
