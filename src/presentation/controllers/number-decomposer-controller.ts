@@ -8,19 +8,26 @@ class NumberDecomposerController implements Controller {
     constructor(private numberDecomposer: NumberDecomposer) { }
 
     handle(httpRequest: HttpRequest): HttpResponse {
-        const { number } = httpRequest.body;
+        try {
+            const { number } = httpRequest.body;
 
-        if (!number) { return badRequest('O número é obrigatório!'); }
+            if (!number) { return badRequest('O número é obrigatório!'); }
 
-        if (typeof number !== 'number') return badRequest('Formato do número inválido!');
+            if (typeof number !== 'number') return badRequest('Formato do número inválido!');
 
-        if (number < 1) return badRequest('O número fornecido não pode ser menor que um!');
+            if (number < 1) return badRequest('O número fornecido não pode ser menor que um!');
 
-        this.numberDecomposer.decomposer(number);
+            this.numberDecomposer.decomposer(number);
 
-        return {
-            statusCode: 200,
-        };
+            return {
+                statusCode: 200,
+            };
+        } catch (error) {
+            return {
+                statusCode: 500,
+                body: new Error(),
+            };
+        }
     }
 }
 
