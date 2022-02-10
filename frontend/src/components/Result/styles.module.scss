@@ -1,0 +1,20 @@
+.resultContainer {
+    max-width: 22rem;
+    margin: 4rem auto 0 auto;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--gray-500);
+  
+      span {
+        color: var(--gray-300);
+      }
+    }
+  }
+  
