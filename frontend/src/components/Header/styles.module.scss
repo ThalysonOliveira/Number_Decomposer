@@ -1,0 +1,16 @@
+.headerContainer {
+    height: 6rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background-color: var(--green-500);
+  
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+  }
+  
