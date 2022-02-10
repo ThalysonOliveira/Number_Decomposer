@@ -9,6 +9,15 @@ const badRequest = (message: string, data?: unknown): HttpResponse => ({
     },
 });
 
+const ok = (message: string, data?: unknown): HttpResponse => ({
+    statusCode: 200,
+    body: {
+        success: true,
+        message,
+        data,
+    },
+});
+
 const serverError = (): HttpResponse => ({
     statusCode: 500,
     body: {
@@ -16,4 +25,4 @@ const serverError = (): HttpResponse => ({
     },
 });
 
-export { badRequest, serverError };
+export { badRequest, ok, serverError };

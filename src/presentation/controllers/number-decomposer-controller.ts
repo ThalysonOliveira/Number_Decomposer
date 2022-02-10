@@ -1,5 +1,5 @@
 import { NumberDecomposer } from '../../domain/userCases/number-decomposer';
-import { badRequest, serverError } from '../helpers/http-helpers';
+import { badRequest, ok, serverError } from '../helpers/http-helpers';
 import { Controller } from '../protocols/controller';
 import { HttpRequest, HttpResponse } from '../protocols/http';
 
@@ -19,13 +19,7 @@ class NumberDecomposerController implements Controller {
 
             const decomposedNumbers = this.numberDecomposer.decomposer(number);
 
-            return {
-                statusCode: 200,
-                body: {
-                    message: 'Números decompostos com sucesso!',
-                    data: decomposedNumbers,
-                },
-            };
+            return ok('Números decompostos com sucesso!', decomposedNumbers);
         } catch (error) {
             return serverError();
         }

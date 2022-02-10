@@ -1,5 +1,5 @@
 import { Decomposed, NumberDecomposer } from '../../domain/userCases/number-decomposer';
-import { badRequest, serverError } from '../helpers/http-helpers';
+import { badRequest, ok, serverError } from '../helpers/http-helpers';
 import { NumberDecomposerController } from './number-decomposer-controller';
 
 type SutTypes = {
@@ -117,7 +117,6 @@ describe('Number Decomposer Controller', () => {
 
         const httpResponse = sut.handle(httpRequest);
 
-        expect(httpResponse.statusCode).toBe(200);
-        expect(httpResponse.body).toEqual({ message: 'Números decompostos com sucesso!', data: decomposedNumbers });
+        expect(httpResponse).toEqual(ok('Números decompostos com sucesso!', decomposedNumbers));
     });
 });
