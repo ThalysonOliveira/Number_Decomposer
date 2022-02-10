@@ -20,6 +20,8 @@
         "class-methods-use-this": "off",
         "import/no-unresolved": "off",
         "import/extensions": "off",
-        "no-undef": "off"
+        "no-undef": "off",
+        "no-useless-constructor": "off",
+        "no-empty-function": "off"
     }
 }
