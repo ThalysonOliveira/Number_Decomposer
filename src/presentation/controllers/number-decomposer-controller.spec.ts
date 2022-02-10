@@ -87,4 +87,21 @@ describe('Number Decomposer Controller', () => {
 
         expect(spyNumberDecomposerStub).toHaveBeenCalledWith(httpRequest.body.number);
     });
+
+    test('Should return 500 if NumberDecomposer throws ', () => {
+        const { sut, numberDecomposerStub } = makeSut();
+
+        jest.spyOn(numberDecomposerStub, 'decomposer').mockImplementationOnce(() => { throw new Error(); });
+
+        const httpRequest = {
+            body: {
+                number: 1,
+            },
+        };
+
+        const httpResponse = sut.handle(httpRequest);
+
+        expect(httpResponse.statusCode).toBe(500);
+        expect(httpResponse.body).toEqual(new Error());
+    });
 });
