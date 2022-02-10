@@ -12,4 +12,16 @@ describe('Number Decomposer Service', () => {
 
         expect(spyNumberDecomposerService).toHaveBeenCalledWith(number);
     });
+
+    test('Should return the number decomposed with its properties', async () => {
+        const sut = new NumberDecomposerService();
+
+        const number = 1;
+
+        const decomposed = sut.decomposer(number);
+
+        expect(decomposed).toHaveProperty('number');
+        expect(decomposed).toHaveProperty('dividingNumbers');
+        expect(decomposed).toHaveProperty('primeNumbers');
+    });
 });
