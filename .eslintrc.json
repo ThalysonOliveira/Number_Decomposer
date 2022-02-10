@@ -22,6 +22,8 @@
         "import/extensions": "off",
         "no-undef": "off",
         "no-useless-constructor": "off",
-        "no-empty-function": "off"
+        "no-empty-function": "off",
+        "no-plusplus": "off",
+        "no-restricted-syntax": "off"
     }
 }
