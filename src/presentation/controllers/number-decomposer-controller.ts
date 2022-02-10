@@ -17,10 +17,14 @@ class NumberDecomposerController implements Controller {
 
             if (number < 1) return badRequest('O número fornecido não pode ser menor que um!');
 
-            this.numberDecomposer.decomposer(number);
+            const decomposedNumbers = this.numberDecomposer.decomposer(number);
 
             return {
                 statusCode: 200,
+                body: {
+                    message: 'Números decompostos com sucesso!',
+                    data: decomposedNumbers,
+                },
             };
         } catch (error) {
             return serverError();
