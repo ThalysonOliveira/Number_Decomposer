@@ -1,0 +1,68 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Decompositor de Números",
+        "description": "API desenvolvida para fatoração de números.",
+        "version": "1.0.0",
+        "contact": {
+            "email": "thalysonoliveira150@gmail.com"
+        }
+    },
+    "paths": {
+        "/number-decomposer": {
+            "post": {
+                "tags": [
+                    "Fatoração"
+                ],
+                "summary": "Fatore um número",
+                "description": "Escolha um número para fatorar e veja seus divisores e primos divisores",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "number": "number"
+                                    }
+                                },
+                                "example": {
+                                    "number": 45
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Número fatorado com sucesso!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "number": {
+                                                "type": "number"
+                                            },
+                                            "dividingNumbers": {
+                                                "type": "array"
+                                            },
+                                            "primeNumbers": {
+                                                "type": "array"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "O número é obrigatório!,  Formato do número inválido!, O número fornecido não pode ser menor que um!"
+                    }
+                }
+            }
+        }
+    }
+}
