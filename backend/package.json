@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/main/server.ts",
+    "build": "npx tsc",
+    "start": "node dist/main/server.js",
     "test": "jest --WatchAll --passWithNoTests"
   },
   "keywords": [],
