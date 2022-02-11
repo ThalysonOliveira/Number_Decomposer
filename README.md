@@ -46,10 +46,11 @@ Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
    - `npm i`
    - Altere o nome do arquivo `.env.example` para `.env` e coloque uma porta da sua escolha
    - `npm run dev`
+   
    - Acesse a raiz do projeto novamente
    - `cd frontend`
    - `npm i`
-   Altere o nome do arquivo `.env.example` para `.env` e coloque a mesma porta que colocou no arquivo anterior
+   - Altere o nome do arquivo `.env.example` para `.env` e coloque a mesma porta que colocou no arquivo anterior
    - `npm start`
 - Acesse a aplicação: `http://localhost:suaporta/`
 
