@@ -1,4 +1,4 @@
-<h1 align="center">Decompositor de números</h1>
+<h1 align="center">Decompositor de Números</h1>
 
 <p align="center">
   <a href="#tecnologia">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
